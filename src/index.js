@@ -22,6 +22,7 @@ const init = () => {
 function renderDog(dogLink){
     const newPic = document.createElement('img')
     newPic.src = dogLink
+    newPic.style.maxWidth = "50%"
     document.querySelector('#dog-image-container').appendChild(newPic)
 }
 
@@ -37,26 +38,16 @@ function renderBreed(breed){
     document.querySelector('#dog-breeds').appendChild(newBreed)
 }
 
-function selecctBreeds(event){ //MAKE IT WORK MORE THAN ONCE -- use style.display = none?
+function selecctBreeds(event){ 
     const firstLetter = event.target.value
     const breeds = document.querySelectorAll('li')
-    //console.log(typeof breeds)
-    /* UNTESTED */
-    //const filteredBreeds = []
     breeds.forEach(breed => {
 
-        //console.log(typeof breed.innerText.startsWith(firstLetter))
         if (!breed.innerText.startsWith(firstLetter)){
-            //filteredBreeds.push(breed)
             breed.style.display = "none"
         }else{
-            breed.style.display = "block"
+            breed.style.display = ""
         }
-        //     breed.remove()
-            //console.log("you got in")
-        
-
-        //console.log(filteredBreeds)
     })
     //document.querySelector('#dog-breeds').replaceChildren(filteredBreeds) 
 }
